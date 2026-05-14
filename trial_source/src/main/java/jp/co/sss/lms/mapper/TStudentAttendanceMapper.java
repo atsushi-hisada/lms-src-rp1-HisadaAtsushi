@@ -65,4 +65,13 @@ public interface TStudentAttendanceMapper {
 	 */
 	Boolean update(TStudentAttendance tStudentAttendance);
 
+	/**
+	 * 未入力件数取得
+	 * @author 久田篤 – Tisk.25
+	 * @param tStudentAttendance
+	 * @return 更新結果
+	 */
+	Integer notEnterCount(@Param("lmsUserId")Integer lmsUserId, @Param("deleteFlg") Short deleteFlg, 
+			@Param("trainingDate")Date trainingDate);
+
 }

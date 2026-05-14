@@ -85,5 +85,29 @@
 			blank_time = #{blankTime}
 		WHERE student_attendance_id = #{studentAttendanceId}
 	</update>
+	
+	<!-- 久田篤 – Task.25 -->
+	<select id="notEnterCount">
+		SELECT COUNT(*)
+		FROM 
+			t_student_attendance a
+		WHERE
+			a.lms_user_id = #{lmsUserId}
+		AND
+			a.delete_flg = #{deleteFlg}
+		AND
+			a.training_date <![CDATA[ < ]]> #{trainingDate}
+		AND
+			a.status != 1
+		AND(
+			a.training_start_time = '' 
+		OR 
+			a.training_end_time = '' 
+		OR 
+			a.training_start_time IS NULL 
+		OR 
+			a.training_end_time IS NULL
+			)
+	</select>
 
 </mapper>
