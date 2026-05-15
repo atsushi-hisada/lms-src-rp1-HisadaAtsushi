@@ -334,4 +334,23 @@ public class StudentAttendanceService {
 		return messageUtil.getMessage(Constants.PROP_KEY_ATTENDANCE_UPDATE_NOTICE);
 	}
 
+	/**
+	 * 過去日の未入力チェック
+	 * 
+	 * @author 久田篤 – Task.25
+	 * @return 未入力日が0より大きい場合true
+	 *			そうでない場合はfalse
+	 * @throws ParseException
+	 */
+	public boolean notEnterCheck() {
+
+		Date today = attendanceUtil.getTrainingDate();
+		boolean isNotEnter = false;
+		// 未入力件数が0よりも大きい場合
+		if (0 < tStudentAttendanceMapper.notEnterCount(loginUserDto.getLmsUserId(), Constants.DB_FLG_FALSE, today)) {
+			isNotEnter = true;
+			System.out.println(tStudentAttendanceMapper.notEnterCount(loginUserDto.getLmsUserId(), Constants.DB_FLG_FALSE, today));
+		}
+		return isNotEnter;
+	}
 }
