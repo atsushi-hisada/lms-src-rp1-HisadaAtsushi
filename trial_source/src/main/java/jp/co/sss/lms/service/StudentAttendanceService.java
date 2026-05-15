@@ -349,7 +349,6 @@ public class StudentAttendanceService {
 		// 未入力件数が0よりも大きい場合
 		if (0 < tStudentAttendanceMapper.notEnterCount(loginUserDto.getLmsUserId(), Constants.DB_FLG_FALSE, today)) {
 			isNotEnter = true;
-			System.out.println(tStudentAttendanceMapper.notEnterCount(loginUserDto.getLmsUserId(), Constants.DB_FLG_FALSE, today));
 		}
 		return isNotEnter;
 	}
