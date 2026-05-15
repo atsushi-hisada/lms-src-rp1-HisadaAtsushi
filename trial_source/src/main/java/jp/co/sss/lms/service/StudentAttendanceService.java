@@ -340,7 +340,6 @@ public class StudentAttendanceService {
 	 * @author 久田篤 – Task.25
 	 * @return 未入力日が0より大きい場合true
 	 *			そうでない場合はfalse
-	 * @throws ParseException
 	 */
 	public boolean notEnterCheck() {
 
